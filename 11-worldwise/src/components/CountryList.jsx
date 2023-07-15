@@ -1,13 +1,18 @@
-import CountryItem from "./CountryItem";
-import styles from "./CountryList.module.css";
 import Spinner from "./Spinner";
+import styles from "./CountryList.module.css";
+import CountryItem from "./CountryItem";
 import Message from "./Message";
+import { useCities } from "../contexts/CitiesContext";
 
-function CountriesList({ cities, isLoading }) {
+function CountryList() {
+  const { cities, isLoading } = useCities();
+
   if (isLoading) return <Spinner />;
 
-  if (!cities.length) return;
-  <Message message="Add your first city by clicking on a city on the map" />;
+  if (!cities.length)
+    return (
+      <Message message="Add your first city by clicking on a city on the map" />
+    );
 
   const countries = cities.reduce((arr, city) => {
     if (!arr.map((el) => el.country).includes(city.country))
@@ -24,4 +29,4 @@ function CountriesList({ cities, isLoading }) {
   );
 }
 
-export default CountriesList;
+export default CountryList;

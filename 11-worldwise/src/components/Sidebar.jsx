@@ -12,8 +12,8 @@ function Sidebar() {
       <Outlet />
 
       <footer className={styles.footer}>
-        <p className={styles.copyrigth}>
-          &copy; Copyright {new Date().getFullYear()} by WorldWise Inc.{" "}
+        <p className={styles.copyright}>
+          &copy; Copyright {new Date().getFullYear()} by WorldWise Inc.
         </p>
       </footer>
     </div>
